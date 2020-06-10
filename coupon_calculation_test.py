@@ -1,0 +1,35 @@
+import unittest
+from main import BasicIF_ELIF
+
+
+class MyTestCase(unittest.TestCase):
+    def test_calculate_order(self):
+        self.assertEqual(BasicIF_ELIF.calculate_order(15.99,5,30), 14.10)
+        #Test set 1:, price under 10 (test_price_under_ten)
+        self.assertEqual(BasicIF_ELIF.calculate_order(10,5,10), 10.72)
+        self.assertEqual(BasicIF_ELIF.calculate_order(10,5,15), 10.46)
+        self.assertEqual(BasicIF_ELIF.calculate_order(10,5,20), 10.19)
+        self.assertEqual(BasicIF_ELIF.calculate_order(10,10,10), 5.95)
+        self.assertEqual(BasicIF_ELIF.calculate_order(10,10,15), 5.95)
+        self.assertEqual(BasicIF_ELIF.calculate_order(10,10,20), 5.95)
+        #Test set 2: price 10 to less than 30 (test_price_under_between_ten_thirty)
+        self.assertEqual(BasicIF_ELIF.calculate_order(25,5,10), 27.03)
+        self.assertEqual(BasicIF_ELIF.calculate_order(27.50,5,15), 28.22)
+        self.assertEqual(BasicIF_ELIF.calculate_order(29.22,5,20), 28.49)
+        self.assertEqual(BasicIF_ELIF.calculate_order(16.99,10,10), 12.62)
+        self.assertEqual(BasicIF_ELIF.calculate_order(22.99,10,15), 19.65)
+        self.assertEqual(BasicIF_ELIF.calculate_order(16.88,10,20), 11.78)
+        #Test set 3: price 30 to less than 50 (test_price_under_between_thirty_fifty)
+        self.assertEqual(BasicIF_ELIF.calculate_order(37.50,5,10), 38.96)
+        self.assertEqual(BasicIF_ELIF.calculate_order(35,5,15), 34.98)
+        self.assertEqual(BasicIF_ELIF.calculate_order(42.50,5,20), 31.80)
+        self.assertEqual(BasicIF_ELIF.calculate_order(45,10,10), 45.34)
+        self.assertEqual(BasicIF_ELIF.calculate_order(47.50,10,15), 45.74)
+        self.assertEqual(BasicIF_ELIF.calculate_order(49.00,10,20), 45.02)
+        #Test set 4: price 50 or over (test_price_under_over_fifty)
+        self.assertEqual(BasicIF_ELIF.calculate_order(78.50,5,10), 70.12)
+        self.assertEqual(BasicIF_ELIF.calculate_order(120,5,15), 103.62)
+        self.assertEqual(BasicIF_ELIF.calculate_order(600,5,20), 504.56)
+        self.assertEqual(BasicIF_ELIF.calculate_order(122.50,10,10), 107.33)
+        self.assertEqual(BasicIF_ELIF.calculate_order(750.78,10,15), 667.44)
+        self.assertEqual(BasicIF_ELIF.calculate_order(999.99,10,20), 839.51)
